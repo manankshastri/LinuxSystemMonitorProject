@@ -1,5 +1,5 @@
 #include "system.h"
-
+#include <algorithm>
 #include <unistd.h>
 
 #include <cstddef>
@@ -20,7 +20,16 @@ using std::vector;
 Processor& System::Cpu() { return cpu_; }
 
 // TODO: Return a container composed of the system's processes
-vector<Process>& System::Processes() { return processes_; }
+vector<Process>& System::Processes() {
+    std::vector<int> pids = LinuxParser::Pids();
+    processes_.clear();
+    for (int pid : pids) {
+        Process process(pid);
+        processes_.push_back(process);
+    }
+    //std::sort(processes_.begin(), processes_.end());
+    return processes_;
+}
 
 // TODO: Return the system's kernel identifier (string)
 std::string System::Kernel() { return LinuxParser::Kernel(); }
