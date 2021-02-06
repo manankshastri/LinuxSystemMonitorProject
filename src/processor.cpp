@@ -8,6 +8,7 @@
 #include <unistd.h>
 
 // TODO: Return the aggregate CPU utilization
+// https://stackoverflow.com/questions/23367857/accurate-calculation-of-cpu-usage-given-in-percentage-in-linux
 void Processor :: calculateTime() {
     std::string line, cpuNum;
     double user, nice, system, idle, iowait, irq, softirq, steal, guest, guestNice;
