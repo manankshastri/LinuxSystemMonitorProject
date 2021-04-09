@@ -1,4 +1,4 @@
-# System Monitor 
+# Linux System Monitor 
 
 <p align=center>
 	<img src="output.gif" width="700" height="400"/>
